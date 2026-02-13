@@ -2,7 +2,7 @@ import MealColumn from "./MealColumn";
 import { messMenu } from "../data/messMenu";
 import { getTodayInfo } from "../utils/getTodayInfo";
 
-export default function TodayMenu() {
+export default function TodayMenu({ studentId }) {
   const { dayName, formattedDate, dateKey } = getTodayInfo();
   const todayMenu = messMenu[dayName];
 
@@ -26,6 +26,7 @@ export default function TodayMenu() {
             items={data.items}
             dateKey={dateKey}
             dayName={dayName}
+            studentId={studentId}
           />
         ))}
       </div>

@@ -242,34 +242,62 @@ button {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(2, 6, 23, 0.75);
   display: grid;
   place-items: center;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .modal-card {
   background: #020617;
+  border-radius: 16px;
   padding: 1.5rem;
-  border-radius: 18px;
   width: 90%;
   max-width: 400px;
-}
-
-.app-container.light .modal-card {
-  background: white;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 14px; /* spacing between elements */
 }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 0.6rem;
+  gap: 12px;
+  margin-top: 8px;
 }
 
-button.secondary {
+
+.modal-actions button {
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  background: #22c55e;
+  color: black;
+}
+
+.modal-actions .secondary {
   background: #64748b;
   color: white;
 }
+
+.modal-card input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: #020617;
+  color: white;
+  font-size: 14px;
+}
+
+.app-container.light .modal-card input {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
 
 /* =====================
    Footer
@@ -311,3 +339,227 @@ button.secondary {
     text-align: center;
   }
 }
+/* Profile wrapper */
+.profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Dropdown container */
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px); /* 👈 pushes dropdown below profile cleanly */
+
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+
+  min-width: 200px;
+  padding: 6px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Dropdown buttons (menu style, not big buttons) */
+.profile-dropdown button {
+  all: unset;
+  width: 100%;
+
+  padding: 10px 12px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  color: #e5e7eb;
+
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Hover effect */
+.profile-dropdown button:hover {
+  background: #1e293b;
+}
+
+/* Logout special styling */
+.profile-dropdown .logout-btn {
+  color: #f87171;
+}
+
+.profile-dropdown .logout-btn:hover {
+  background: #7f1d1d;
+  color: #fecaca;
+}
+.profile-dropdown hr {
+  border: none;
+  height: 1px;
+  background: #1e293b;
+  margin: 6px 0;
+}
+/* Avatar circle */
+.avatar {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+  font-size: 14px;
+
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4);
+  user-select: none;
+}
+/* Login Page Wrapper */
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(
+    circle at top,
+    #0f172a,
+    #020617 70%
+  );
+}
+
+/* Login Card */
+.login-card {
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 16px;
+
+  width: 360px;
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* Title */
+.login-card h1 {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+/* Subtitle */
+.login-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}
+
+/* Inputs */
+.login-card input {
+  background: #020617;
+  border: 1px solid #334155;
+  border-radius: 10px;
+
+  padding: 10px 12px;
+  color: white;
+  font-size: 14px;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* Login Button */
+.login-card button {
+  margin-top: 10px;
+
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: black;
+
+  border: none;
+  border-radius: 12px;
+  padding: 10px;
+
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.login-card button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(34, 197, 94, 0.4);
+}
+
+/* Note */
+.login-note {
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+}
+.login-error {
+  color: #f87171;
+  font-size: 13px;
+  text-align: center;
+}
+
+.login-card button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+/* ===== Light Mode Modal Fix ===== */
+.app-container.light .modal-overlay {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.app-container.light .modal-card {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e5e7eb;
+}
+.app-container.light .modal-card textarea {
+  background: #f8fafc;
+  color: #0f172a;
+  border: 1px solid #d1d5db;
+}
+.app-container.light .modal-card input::placeholder,
+.app-container.light .modal-card textarea::placeholder {
+  color: #6b7280;
+}
+/* ===== Light Mode Profile Dropdown ===== */
+.app-container.light .profile-dropdown {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+}
+
+.app-container.light .profile-dropdown button {
+  color: #0f172a;
+}
+
+.app-container.light .profile-dropdown button:hover {
+  background: #f1f5f9;
+}
+
+.app-container.light .profile-dropdown hr {
+  background: #e5e7eb;
+}
+
+.app-container.light .profile-dropdown .logout-btn {
+  color: #dc2626;
+}
+
+.app-container.light .profile-dropdown .logout-btn:hover {
+  background: #fee2e2;
+}
+

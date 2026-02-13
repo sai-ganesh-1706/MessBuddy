@@ -3,11 +3,9 @@ import MenuItem from "./MenuItem";
 import ItemRatingModal from "./ItemRatingModal";
 import MealRatingSection from "./MealRatingSection";
 
-export default function MealColumn({ meal, items, dateKey, dayName }) {
+export default function MealColumn({ meal, items, dateKey, dayName, studentId}) {
   const [activeItem, setActiveItem] = useState(null);
 
-  // TEMP studentId (replace with auth later)
-  const studentId = "2023CS123";
 
   return (
     <div className="meal-column">
