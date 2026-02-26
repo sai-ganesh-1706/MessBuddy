@@ -11,24 +11,28 @@ export default function Header({ user }) {
   const logout = () => {
     localStorage.removeItem("studentId");
     localStorage.removeItem("studentName");
-    window.location.reload(); // simplest + safest
+    window.location.reload();
   };
 
   return (
     <>
       <header className="header">
-        {/* Left */}
-        <div className="header-left">
-          <img src="/college-logo.png" className="college-logo" />
-        </div>
 
-        {/* Center */}
-        <div className="header-center">
+        {/* TOP ROW */}
+        <div className="header-top">
+          <img src="/college-logo.png" className="college-logo" />
           <h1>🍽️ MessBuddy</h1>
         </div>
 
-        {/* Right */}
-        <div className="header-right">
+        {/* BOTTOM ROW */}
+        <div className="header-bottom">
+
+          {/* LEFT → Theme Button */}
+          <button className="theme-btn" onClick={toggleTheme}>
+            {theme === "light" ? "🌙 Night" : "☀ Day"}
+          </button>
+
+          {/* RIGHT → Profile */}
           <div className="profile" onClick={() => setOpen(!open)}>
             <div
               className="avatar"
@@ -56,7 +60,7 @@ export default function Header({ user }) {
                   Change Password
                 </button>
 
-                <hr/>
+                <hr />
 
                 <button
                   className="logout-btn"
@@ -68,9 +72,6 @@ export default function Header({ user }) {
             )}
           </div>
 
-          <button className="theme-btn" onClick={toggleTheme}>
-            {theme === "light" ? "🌙 Night" : "☀ Day"}
-          </button>
         </div>
       </header>
 

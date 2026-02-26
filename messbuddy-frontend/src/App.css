@@ -32,11 +32,11 @@
 /* =====================
    Header
 ===================== */
+
 .header {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  padding: 1rem 1.5rem;
+  grid-template-rows: auto auto; /* 2 rows */
+  padding: 1.2rem 1.5rem;
   border-radius: 16px;
   background: linear-gradient(135deg, #1e293b, #020617);
   margin-bottom: 2rem;
@@ -46,20 +46,30 @@
   background: linear-gradient(135deg, #e2e8f0, #f8fafc);
 }
 
+/* TOP ROW */
+.header-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* BOTTOM ROW */
+.header-bottom {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .college-logo {
   height: 42px;
 }
 
-.header-center h1 {
-  text-align: center;
+.header-top h1 {
   font-size: 1.6rem;
   font-weight: 700;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  margin: 0;
 }
 
 .student-name {
@@ -113,23 +123,55 @@
 /* =====================
    Meal Column
 ===================== */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Force 4 columns */
+  gap: 1.2rem;
+}
+
+/* FIXED HEIGHT CARDS */
 .meal-column {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 18px;
-  padding: 1.2rem;
+  padding: 1rem;
   backdrop-filter: blur(8px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+
+  height: 500px; /* 🔥 Fixed height */
+  display: flex;
+  flex-direction: column;
 }
 
-.app-container.light .meal-column {
-  background: white;
-}
-
+/* Title */
 .meal-column h3 {
   text-align: center;
   margin-bottom: 1rem;
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+/* Scrollable Items Area */
+.items-list {
+  flex: 1; /* 🔥 Take remaining space */
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-bottom: 1rem;
+}
+
+/* Optional: custom scrollbar */
+.items-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.items-list::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 6px;
+}
+
+/* Rating always at bottom */
+.meal-rating {
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  padding-top: 0.8rem;
 }
 
 /* =====================
@@ -322,20 +364,24 @@ button {
 /* =====================
    Responsive
 ===================== */
-@media (max-width: 640px) {
+@media (max-width: 1200px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .header {
     grid-template-columns: 1fr;
     gap: 0.8rem;
     text-align: center;
   }
+}
 
-  .footer {
+@media (max-width: 700px) {
+  .menu-grid {
     grid-template-columns: 1fr;
-    gap: 0.5rem;
-    text-align: center;
   }
-
-  .footer-right {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
     text-align: center;
   }
 }
