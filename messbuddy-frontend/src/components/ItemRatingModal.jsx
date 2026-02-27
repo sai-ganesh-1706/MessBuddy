@@ -17,7 +17,7 @@ export default function ItemRatingModal({
       alert("Please select a rating");
       return;
     }
-
+    try{
     await submitItemRating({
       studentId,
       date: dateKey,
@@ -27,6 +27,10 @@ export default function ItemRatingModal({
       rating,
       feedback
     });
+    alert("Vote submitted successfully");
+  }catch (err) {
+    alert(err.message);// backend message
+  }
 
     onClose();
   };

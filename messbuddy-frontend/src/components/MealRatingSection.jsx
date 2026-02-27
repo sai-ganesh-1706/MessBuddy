@@ -16,16 +16,19 @@ export default function MealRatingSection({
       return;
     }
 
+    try {
     await submitMealRating({
       studentId,
       date: dateKey,
-      day: dayName,
       meal,
       rating,
       feedback
     });
 
-    alert("Meal feedback saved");
+    alert("Vote submitted successfully");
+  } catch (err) {
+    alert(err.message); // backend message
+  }
   };
 
   return (
