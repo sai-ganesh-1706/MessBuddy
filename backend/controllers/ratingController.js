@@ -72,14 +72,14 @@ exports.submitItemRating = async (req, res) => {
     if (date !== today) {
       return res.status(403).json({
         success: false,
-        message: "You can only vote for today's meal."
+        message: "You can only give feedback for today's meal."
       });
     }
 
     if (!isWithinTimeSlot(meal)) {
       return res.status(403).json({
         success: false,
-        message: "Voting is closed for this meal."
+        message: "Feedback is restricted for this meal.(open during respective time slot)"
       });
     }
 
@@ -110,14 +110,14 @@ exports.submitMealRating = async (req, res) => {
     if (date !== today) {
       return res.status(403).json({
         success: false,
-        message: "You can only vote for today's meal."
+        message: "You can only give feedback for today's meal."
       });
     }
 
     if (!isWithinTimeSlot(meal)) {
       return res.status(403).json({
         success: false,
-        message: "Voting is closed for this meal."
+        message: "Feedback is restricted for this meal.(open during respective time slot)"
       });
     }
 

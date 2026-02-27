@@ -27,7 +27,7 @@ export default function ItemRatingModal({
       rating,
       feedback
     });
-    alert("Vote submitted successfully");
+    alert("Feedback submitted successfully");
   }catch (err) {
     alert(err.message);// backend message
   }

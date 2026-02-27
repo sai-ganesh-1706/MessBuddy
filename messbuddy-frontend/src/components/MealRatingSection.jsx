@@ -25,7 +25,7 @@ export default function MealRatingSection({
       feedback
     });
 
-    alert("Vote submitted successfully");
+    alert("feedback submitted successfully");
   } catch (err) {
     alert(err.message); // backend message
   }
