@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = "https://messbuddy-fwak.onrender.com/api";
 
 export const submitItemRating = async (data) => {
   const res = await fetch(`${BASE_URL}/ratings/item`, {

@@ -28,6 +28,9 @@ export default function MealRatingSection({
     alert("feedback submitted successfully");
   } catch (err) {
     alert(err.message); // backend message
+    // RESET AFTER FAILURE
+    setRating(0);
+    setFeedback("");
   }
   };
 
