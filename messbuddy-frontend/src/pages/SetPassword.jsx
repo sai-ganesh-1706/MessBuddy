@@ -4,7 +4,7 @@ export default function SetPassword({ studentId, onDone }) {
   const [pwd, setPwd] = useState("");
 
   const submit = async () => {
-    await fetch("http://localhost:5000/api/auth/set-password", {
+    await fetch("https://messbuddy-fwak.onrender.com/api/auth/set-password", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ studentId, newPassword: pwd })

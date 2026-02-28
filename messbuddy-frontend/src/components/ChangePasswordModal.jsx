@@ -22,7 +22,7 @@ export default function ChangePasswordModal({ studentId, onClose }) {
 
     try {
       const res = await fetch(
-        "http://localhost:5000/api/auth/change-password",
+        "https://messbuddy-fwak.onrender.com/api/auth/change-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
